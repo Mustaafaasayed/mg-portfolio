@@ -64,4 +64,13 @@
   --space-8: 32px;
   --space-16: 64px;
   --space-24: 96px;
+
+/* ==========================================================================
+   Container Widths
+   ========================================================================== */
+
+--container-flagship: 760px;
+--container-condensed: 680px;
+--container-resume: 840px;
+--container-row: 1200px;
 }

@@ -14,6 +14,12 @@ const config: Config = {
           raised: "var(--color-bg-raised)",
         },
 
+        maxWidth: {
+          flagship: "var(--container-flagship)",
+          condensed: "var(--container-condensed)",
+          resume: "var(--container-resume)",
+          row: "var(--container-row)",
+        },
         text: {
           primary: "var(--color-text-primary)",
           secondary: "var(--color-text-secondary)",
