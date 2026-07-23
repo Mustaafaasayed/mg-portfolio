@@ -1,3 +1,4 @@
+import { Footer } from "@/components/global/Footer";
 import { Header } from "@/components/global/Header";
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <>
       <Header />
       <main>Portfolio</main>
+      <Footer />
     </>
   );
 }
