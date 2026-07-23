@@ -2,6 +2,7 @@ import { Container } from "@/components/global/Container";
 import { Footer } from "@/components/global/Footer";
 import { Header } from "@/components/global/Header";
 import { Section } from "@/components/global/Section";
+import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <main>
         <Section id="hero" background="base" weight="flagship">
           <Container size="flagship" className="text-center">
-            <h1 className="text-hero">Hero Placeholder</h1>
+            <Hero />
           </Container>
         </Section>
 
