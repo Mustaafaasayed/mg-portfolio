@@ -24,7 +24,7 @@ export function Header({ site }: HeaderProps) {
     <header className="sticky top-0 z-50 border-b border-border bg-bg-base shadow-header">
       <Container
         size="row"
-        className="relative flex items-center gap-4 px-6 py-4 md:gap-6 md:px-8"
+        className="relative flex items-center gap-4 py-4 md:gap-6"
       >
         <a className="font-semibold text-text-primary" href="#hero">
           {site.name}

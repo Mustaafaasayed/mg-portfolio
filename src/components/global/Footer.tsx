@@ -11,7 +11,7 @@ export function Footer({ site }: FooterProps) {
     <footer className="border-t border-border bg-bg-base text-small text-text-secondary">
       <Container
         size="row"
-        className="flex flex-col gap-4 px-6 py-6 md:flex-row md:flex-wrap md:items-center md:px-8"
+        className="flex flex-col gap-4 py-6 md:flex-row md:flex-wrap md:items-center"
       >
         <p>
           © 2026 {site.name}
