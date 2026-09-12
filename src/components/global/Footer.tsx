@@ -1,23 +1,37 @@
 import { Container } from "@/components/global/Container";
+import { ContactCTA } from "@/components/ui/ContactCTA";
+import type { SiteConfigContent } from "@/lib/content";
 
-export function Footer() {
+type FooterProps = {
+  site: SiteConfigContent;
+};
+
+export function Footer({ site }: FooterProps) {
   return (
     <footer className="border-t border-border bg-bg-base text-small text-text-secondary">
       <Container
         size="row"
-        className="flex flex-wrap items-center gap-4 px-6 py-6 md:px-8"
+        className="flex flex-col gap-4 px-6 py-6 md:flex-row md:flex-wrap md:items-center md:px-8"
       >
-        <p>© 2026 MG Portfolio</p>
-        <ul className="flex items-center gap-4 md:ml-auto">
+        <p>
+          © 2026 {site.name}
+        </p>
+        <ul className="flex flex-wrap items-center gap-4 md:ml-auto">
           <li>
-            <a href="mailto:hello@example.com">Email</a>
+            <ContactCTA email={site.email} label={site.email} variant="text" />
           </li>
-          <li>
-            <a href="https://www.linkedin.com/">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://github.com/">GitHub</a>
-          </li>
+          {site.socialLinks?.map((link) => (
+            <li key={link.url}>
+              <a
+                className="underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+                href={link.url}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </Container>
     </footer>

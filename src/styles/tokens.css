@@ -69,8 +69,18 @@
    Container Widths
    ========================================================================== */
 
---container-flagship: 760px;
---container-condensed: 680px;
---container-resume: 840px;
---container-row: 1200px;
+  --container-flagship: 760px;
+  --container-condensed: 680px;
+  --container-resume: 840px;
+  --container-row: 1200px;
+
+  /* ==========================================================================
+     Radius, elevation, motion
+     ========================================================================== */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-sticky-header: 0 1px 0 var(--color-border);
+  --motion-fast: 120ms;
+  --motion-base: 150ms;
 }

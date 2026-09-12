@@ -1,19 +1,31 @@
-export function Hero() {
+import type { HeroContent } from "@/lib/content";
+
+type HeroProps = {
+  content: HeroContent;
+};
+
+export function Hero({ content }: HeroProps) {
   return (
     <div className="flex flex-col items-center gap-8">
-      <h1 className="text-hero">Hero Headline Placeholder</h1>
-      <p className="text-body-lg text-text-secondary">
-        Hero supporting paragraph placeholder.
-      </p>
-      <div className="flex flex-col items-center gap-4">
-        <a className="text-accent underline" href="#decision-case-a">
-          Decision Case A proof tease placeholder
+      <h1 className="text-hero text-text-primary">{content.headline}</h1>
+      <div className="flex flex-col items-center gap-4 text-body-lg">
+        <a
+          className="text-accent underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+          href={content.teaseThinkingLink}
+        >
+          {content.teaseThinking}
         </a>
-        <a className="text-accent underline" href="#fintrack">
-          FinTrack proof tease placeholder
+        <a
+          className="text-accent underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+          href={content.teaseBuildingLink}
+        >
+          {content.teaseBuilding}
         </a>
       </div>
-      <a className="text-small text-text-secondary underline" href="#philosophy">
+      <a
+        className="text-small text-text-secondary underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+        href="#philosophy"
+      >
         Scroll to see how
       </a>
     </div>

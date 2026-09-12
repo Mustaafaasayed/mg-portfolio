@@ -1,39 +1,83 @@
+"use client";
+
+import { useState } from "react";
+
 import { Container } from "@/components/global/Container";
+import { ContactCTA } from "@/components/ui/ContactCTA";
+import type { SiteConfigContent } from "@/lib/content";
 
 const navigationItems = [
-  { href: "#hero", label: "Hero" },
   { href: "#philosophy", label: "Philosophy" },
-  { href: "#decision-case-a", label: "Decision Case A" },
-  { href: "#fintrack", label: "FinTrack" },
-  { href: "#decision-case-b", label: "Decision Case B" },
-  { href: "#case-study-b", label: "Case Study B" },
+  { href: "#decision-case-a", label: "Thinking" },
+  { href: "#fintrack", label: "Building" },
   { href: "#resume", label: "Resume" },
-  { href: "#contact", label: "Contact" },
 ] as const;
 
-export function Header() {
+type HeaderProps = {
+  site: SiteConfigContent;
+};
+
+export function Header({ site }: HeaderProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="border-b border-border bg-bg-base">
-      <Container size="row" className="flex items-center gap-6 px-6 py-4 md:px-8">
+    <header className="sticky top-0 z-50 border-b border-border bg-bg-base shadow-header">
+      <Container
+        size="row"
+        className="relative flex items-center gap-4 px-6 py-4 md:gap-6 md:px-8"
+      >
         <a className="font-semibold text-text-primary" href="#hero">
-          MG Portfolio
+          {site.name}
         </a>
-        <nav>
+
+        <nav className="hidden md:block" id="site-navigation">
           <ul className="flex items-center gap-4 text-small text-text-secondary">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <a
+                  className="underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
         </nav>
-        <a
-          className="ml-auto bg-accent px-4 py-2 text-small font-semibold text-bg-raised"
-          href="#contact"
+
+        <ContactCTA className="ml-auto" email={site.email} label="Let's talk" />
+
+        <button
+          aria-controls="mobile-navigation"
+          aria-expanded={isMenuOpen}
+          className="text-small text-text-secondary md:hidden"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          type="button"
         >
-          Get in touch
-        </a>
+          {isMenuOpen ? "Close" : "Menu"}
+        </button>
       </Container>
+
+      {isMenuOpen ? (
+        <nav
+          className="border-t border-border bg-bg-base md:hidden"
+          id="mobile-navigation"
+        >
+          <ul className="flex flex-col gap-4 px-6 py-4 text-small text-text-secondary">
+            {navigationItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  className="underline decoration-transparent underline-offset-4 transition-colors duration-fast hover:decoration-current"
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 }

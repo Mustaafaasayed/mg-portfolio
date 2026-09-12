@@ -33,7 +33,7 @@ export function Section({
   return (
     <section
       className={cn(
-        "px-6 md:px-8",
+        "scroll-mt-24 px-6 md:px-8",
         backgroundClasses[background],
         weightClasses[weight],
         className
